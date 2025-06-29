@@ -20,13 +20,17 @@ echo "</pre>";
 echo "</div>";
 // chat display area
 echo "<div id='chat'>";
+
 echo "</div>";
 echo "</div>";
 // chat input area
 echo "<div id='chat-input'>";
+echo "<input type='text' id='user_input' placeholder='Type your message here...' required>";
+echo "<button id='send_button' onclick=\"sendMessage()\">Send</button>";
 echo "</div>";
 // footer
 echo "<div id='footer'>";
 echo "<p>&copy; 2025 Britta Haupt</p>";
+echo "<script type='text/javascript' src='chat.js'></script>";
 echo "</div>";
 ?>

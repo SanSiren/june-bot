@@ -96,6 +96,32 @@ ul {
   border-right: 1px solid rgb(100, 100, 100);
 }
 
+#chat {
+  padding: 20px;
+}
+
+#chat-input input[type="text"] {
+  width: 70%;
+  margin: 1em;
+  font: inherit;
+  border: 1px solid rgb(100, 100, 100);
+  border-radius: 5px;
+  background-color: rgb(50, 50, 50);
+  color: rgb(200, 200, 200);
+  padding-left: 50px;
+}
+
+#chat-input button {
+  width: 20%;
+  margin: 1em;
+  font: inherit;
+  border: none;
+  background-color: rgb(169, 217, 249);
+  border-radius: 5px;
+  color: rgb(50, 50, 50);
+  cursor: pointer;
+}
+
 #footer {
   height: 5%;
   text-align: right;
