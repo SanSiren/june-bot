@@ -99,6 +99,7 @@ echo "          chatbotResponse.classList.add('chat', 'received');";
 echo "          chatBox.appendChild(chatbotResponse);";
 echo "          chatBox.scrollTop = chatBox.scrollHeight;"; // Scroll to bottom of chat box
 echo "        })";
+// return a random sound
 echo "    } else {";
 echo "      let sound = sounds[Math.floor(Math.random() * sounds.length)];";
 echo "      let chatbotResponse = document.createElement('div');";
@@ -113,12 +114,12 @@ echo "}";
 
 // TODO: maybe randomize this a bit?
 echo "function leaveTimer() {";
-//echo "  const timer = 10000;";
+//echo "  const timer = 10000;"; // for debugging purposes only
 echo "  const timer = 300000;";// 5 minutes in milliseconds
 echo "  setTimeout(() => {";
 echo "    let chatBox = document.getElementById('chat');";
 echo "    let leaveMessage = document.createElement('div');";
-echo "    leaveMessage.textContent = 'Your cat left the room.';";
+echo "    leaveMessage.innerHTML = '$cat_name has left the c(h)at room. <br> Bye bye $cat_name!';";
 echo "    leaveMessage.classList.add('chat', 'received');";
 echo "    chatBox.appendChild(leaveMessage);";
 echo "    chatBox.scrollTop = chatBox.scrollHeight;"; // Scroll to bottom of chat box
