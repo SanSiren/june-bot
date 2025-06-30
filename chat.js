@@ -27,7 +27,7 @@ function sendMessage() {
 }
 
 // TODO: maybe randomize this a bit?
-function leaveTimer( ) {
+function leaveTimer() {
   // const timer = 10000; // 5 minutes in milliseconds
   const timer = 300000; // 5 minutes in milliseconds
   setTimeout(() => {
