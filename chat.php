@@ -7,7 +7,7 @@ $cat_name = htmlspecialchars($_POST['cat_name']);
 $api_url = "https://gotev.github.io/no-as-a-service/request.json";
 
 // regular cat sounds
-$sounds = array("meow", "mrrp", "chirp", "brrrrrrrp", "mrrp", "meow", "chirp");
+$sounds = array("meow", "mrrp", "chirp", "brrrrrrrp", "mrrp", "meow", "chirp", "meow");
 
 // phrases the cat understands
 $phrases = array("$cat_name come",
@@ -73,7 +73,7 @@ echo "  }";
 // user message";
 echo "  let chatBox = document.getElementById('chat');";
 echo "  let userMessage = document.createElement('div');";
-echo "  userMessage.textContent = messageText;";
+echo "  userMessage.innerHTML = '$user_name: <br>' + messageText;";
 echo "  userMessage.classList.add('chat', 'sent');";
 echo "  chatBox.appendChild(userMessage);";
 
@@ -90,10 +90,10 @@ echo "          console.log('Decision from API: ', decision);";
 echo "          let chatbotResponse = document.createElement('div');";
 echo "          if (decision) {";
 // if true == yes => purr
-echo "            chatbotResponse.innerHTML = '<i>purr</i>';";
+echo "            chatbotResponse.innerHTML = '$cat_name: <br><i>purr</i>';";
 echo "          } else {";
 // if false == no => hiss
-echo "            chatbotResponse.innerHTML = '<i>hiss</i>';";
+echo "            chatbotResponse.innerHTML = '$cat_name: <br><i>hiss</i>';";
 echo "          }";
 echo "          chatbotResponse.classList.add('chat', 'received');";
 echo "          chatBox.appendChild(chatbotResponse);";
@@ -103,7 +103,7 @@ echo "        })";
 echo "    } else {";
 echo "      let sound = sounds[Math.floor(Math.random() * sounds.length)];";
 echo "      let chatbotResponse = document.createElement('div');";
-echo "      chatbotResponse.textContent = sound;";
+echo "      chatbotResponse.innerHTML = '$cat_name: <br>' + sound;";
 echo "      chatbotResponse.classList.add('chat', 'received');";
 echo "      chatBox.appendChild(chatbotResponse);";
 echo "      chatBox.scrollTop = chatBox.scrollHeight;"; // Scroll to bottom of chat box
