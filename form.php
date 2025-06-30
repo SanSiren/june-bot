@@ -25,6 +25,7 @@ echo "<li><i>[NAME]</i> come / <i>[NAME]</i> come here</li>";
 echo "<li><i>[NAME]</i> get off the counter / table / chair / sofa</li>";
 echo "<li><i>[NAME]</i> can I pet you</li>";
 echo "</ul>";
+echo "<p>Replace <i>[NAME]</i> with the name you chose for your cat.</p>";
 echo "</div>";
 echo "</div>";
 // footer

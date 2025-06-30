@@ -11,19 +11,33 @@ $sounds = array("meow", "mrrp", "chirp", "brrrrrrrp", "mrrp", "meow", "chirp", "
 
 // phrases the cat understands
 $phrases = array("$cat_name come",
+                "$cat_name come!",
                 "$cat_name come here",
+                "$cat_name come here!",
                 "$cat_name get off the counter",
+                "$cat_name get off the counter!",
                 "$cat_name get off the table",
+                "$cat_name get off the table!",
                 "$cat_name get off the chair",
+                "$cat_name get off the chair!",
                 "$cat_name get off the sofa",
+                "$cat_name get off the sofa!",
                 "$cat_name can I pet you",
+                "$cat_name can I pet you?",
                 "come",
+                "come!",
                 "come here",
+                "come here!",
                 "get off the counter",
+                "get off the counter!",
                 "get off the table",
+                "get off the table!",
                 "get off the chair",
+                "get off the chair!",
                 "get off the sofa",
-                "can I pet you"
+                "get off the sofa!",
+                "can I pet you",
+                "can I pet you?"
                 );
 
 // heading
@@ -73,12 +87,25 @@ echo "  }";
 // user message";
 echo "  let chatBox = document.getElementById('chat');";
 echo "  let userMessage = document.createElement('div');";
-echo "  userMessage.innerHTML = '$user_name: <br>' + messageText;";
+echo "  userMessage.innerHTML = '$user_name:\$ ' + messageText;";
 echo "  userMessage.classList.add('chat', 'sent');";
 echo "  chatBox.appendChild(userMessage);";
 
 // reply from the c(h)atbot";
 echo "  setTimeout(() => {";
+// no cat for Val
+echo "    if ('$user_name' === 'Val' || '$user_name' === 'Valerie') {";
+echo "      let chatbotResponse = document.createElement('div');";
+echo "      chatbotResponse.innerHTML = '$cat_name:\$ <i>pees on the bed and leaves</i>';";
+echo "      chatbotResponse.classList.add('chat', 'received');";
+echo "      chatBox.appendChild(chatbotResponse);";
+echo "      chatBox.scrollTop = chatBox.scrollHeight;"; // Scroll to bottom of chat box
+echo "      setTimeout(() => {";
+echo "          history.back();"; // Go back to the previous page
+echo "      }, 5000);"; // delay before going back to show leave message
+echo "      return;"; // Exit the function early
+echo "    }";
+
 // check for known commands
 echo "    if (phrases.includes(messageText)) {";
 // ask API for decision
@@ -90,20 +117,27 @@ echo "          console.log('Decision from API: ', decision);";
 echo "          let chatbotResponse = document.createElement('div');";
 echo "          if (decision) {";
 // if true == yes => purr
-echo "            chatbotResponse.innerHTML = '$cat_name: <br><i>purr</i>';";
+echo "            chatbotResponse.innerHTML = '$cat_name:\$ <i>purr</i>';";
 echo "          } else {";
 // if false == no => hiss
-echo "            chatbotResponse.innerHTML = '$cat_name: <br><i>hiss</i>';";
+echo "            chatbotResponse.innerHTML = '$cat_name:\$ <i>hiss</i>';";
 echo "          }";
 echo "          chatbotResponse.classList.add('chat', 'received');";
 echo "          chatBox.appendChild(chatbotResponse);";
 echo "          chatBox.scrollTop = chatBox.scrollHeight;"; // Scroll to bottom of chat box
 echo "        })";
+// if user says "meow" => return WTF
+echo "    } else if (messageText === 'meow') {";
+echo "      let chatbotResponse = document.createElement('div');";
+echo "      chatbotResponse.innerHTML = '$cat_name:\$ WTF $user_name??';";
+echo "      chatbotResponse.classList.add('chat', 'received');";
+echo "      chatBox.appendChild(chatbotResponse);";
+echo "      chatBox.scrollTop = chatBox.scrollHeight;"; // Scroll to bottom of chat box
 // return a random sound
 echo "    } else {";
 echo "      let sound = sounds[Math.floor(Math.random() * sounds.length)];";
 echo "      let chatbotResponse = document.createElement('div');";
-echo "      chatbotResponse.innerHTML = '$cat_name: <br>' + sound;";
+echo "      chatbotResponse.innerHTML = '$cat_name:\$ ' + sound;";
 echo "      chatbotResponse.classList.add('chat', 'received');";
 echo "      chatBox.appendChild(chatbotResponse);";
 echo "      chatBox.scrollTop = chatBox.scrollHeight;"; // Scroll to bottom of chat box
@@ -115,7 +149,7 @@ echo "}";
 // TODO: maybe randomize this a bit?
 echo "function leaveTimer() {";
 //echo "  const timer = 10000;"; // for debugging purposes only
-echo "  const timer = 300000;";// 5 minutes in milliseconds
+echo "  const timer = 180000;"; // 3 minutes in milliseconds
 echo "  setTimeout(() => {";
 echo "    let chatBox = document.getElementById('chat');";
 echo "    let leaveMessage = document.createElement('div');";

@@ -53,7 +53,7 @@ function sendMessage() {
 
 // TODO: maybe randomize this a bit?
 function leaveTimer() {
-  // const timer = 10000; // 5 minutes in milliseconds
+  // const timer = 10000; // just for debugging, 10 seconds
   const timer = 300000; // 5 minutes in milliseconds
   setTimeout(() => {
     let chatBox = document.getElementById('chat');
