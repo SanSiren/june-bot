@@ -125,7 +125,7 @@ echo "    chatBox.appendChild(leaveMessage);";
 echo "    chatBox.scrollTop = chatBox.scrollHeight;"; // Scroll to bottom of chat box
 echo "    setTimeout(() => {";
 echo "          history.back();"; // Go back to the previous page
-echo "    }, 2000);"; // delay before going back to show leave message
+echo "    }, 5000);"; // delay before going back to show leave message
 echo "  }, timer);";
 echo "}";
 
